@@ -52,6 +52,8 @@ func WithBaseURL(baseURL string) Option {
 	}
 }
 
+// WithRateLimiter はAPIのレート制限を行うオプションです。
+// https://kabucom.github.io/kabusapi/reference/index.html
 func WithRateLimiter() Option {
 	return func(c *Client) {
 		c.httpClient.Transport = NewThrottledTransport(&ThrottledTransportConfig{
